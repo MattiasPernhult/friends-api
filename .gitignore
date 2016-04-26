@@ -1,3 +1,5 @@
-credentials/credentials.go
+# source/credentials/credentials.go
 
 .DS_Store
+
+node_modules
