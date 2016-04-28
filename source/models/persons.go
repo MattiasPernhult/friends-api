@@ -7,8 +7,8 @@ type (
 		Relationship string `json:"relationship,omitempty" bson:"relationship"`
 	}
 
-	// People struct
-	People struct {
+	// Persons struct
+	Persons struct {
 		FirstAppearance  string      `json:"firstAppearance,omitempty" bson:"firstAppearance"`
 		LastAppearance   string      `json:"lastAppearance,omitempty" bson:"lastAppearance"`
 		NumberOfEpisodes int32       `json:"numberOfEpisodes,omitempty" bson:"numberOfEpisodes"`

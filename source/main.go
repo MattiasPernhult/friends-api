@@ -9,9 +9,9 @@ import (
 func main() {
 	router := gin.Default()
 	setUpRoutes(router)
-	router.Run()
+	router.Run("localhost:8080")
 }
 
 func setUpRoutes(router *gin.Engine) {
-	router.GET("people", controllers.GetPeople)
+	router.GET("persons", controllers.PersonsController)
 }
