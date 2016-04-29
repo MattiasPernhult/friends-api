@@ -42,6 +42,9 @@ Parameter `include` will include more information in the response. To include se
 
 ##### Example Response
 
+When doing a GET Request to the endpoint and adding query parameter limit to 2, it will return the following response.
+
+
 ```JSON
 {
   "people": [
