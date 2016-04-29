@@ -2,11 +2,15 @@
 REST API for fetching data about the tv show Friends
 
 ## Endpoints
-#### Overview
+### Overview
 |Method       |Endpoint         |Description                                                                   |
 |:------------|:----------------|:-----------------------------------------------------------------------------|
 |GET          |/persons         |Returns persons from Friends, both regulars and recurring characters          |
 
-#### GET /friends
+### GET /friends
 
-[I'm an inline-style link >](https://www.google.com)
+##### Query Parameters
+|Parameter|Description|Required|Type|Default|Valid values|
+|:--------|:----------|:-------|:---|:------|:-----------|
+|limit|Limit the returned results|No|Number|25|Number greater than 0|
+|orderBy|Sort the result on number of episodes|No|String|"-numberOfEpisodes"|"-numberOfEpisodes" and "numberOfEpisodes"|
