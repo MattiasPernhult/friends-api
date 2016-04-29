@@ -31,3 +31,33 @@ REST API for fetching data about the tv show Friends
 |limit|25|Number greater than 0|
 |orderBy|`-numberOfEpisodes`|`-numberOfEpisodes` `numberOfEpisodes`|
 |include|*See JSON Schema*|*See JSON Schema*|
+
+Parameter `orderBy` will default to -numberOfEpisodes, the dash means it will sort by descending and without the dash it will sort by ascending.
+
+Parameter `include` will include more information in the response. To include several use comma between each include:
+
+```
+/persons?include=nicknames,occupations
+```
+
+##### Example Response
+
+```JSON
+{
+  "people": [
+    {
+      "firstAppearance": "The Pilot",
+      "lastAppearance": "The Last One, Part 2",
+      "numberOfEpisodes": 236,
+      "name": "Monica E. Geller-Bing"
+    },
+    {
+      "firstAppearance": "The Pilot",
+      "lastAppearance": "The Last One, Part 2",
+      "numberOfEpisodes": 236,
+      "name": "Rachel Green"
+    }
+  ]
+}
+```
+
