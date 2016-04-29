@@ -9,8 +9,25 @@ REST API for fetching data about the tv show Friends
 
 ### GET /friends
 
+##### JSON Schema
+
+|Name|Type|Shown|
+|:---|:---|:----|
+|**firstAppearance**|String|Always|
+|**lastAppearance**|String|Always|
+|**numberOfEpisodes**|Number|Always|
+|**name**|String|Always|
+|**potrayedBy**|[String]|With parameter `inlcude`|
+|**nicknames**|[String]|With parameter `inlcude`|
+|**gender**|String|With parameter `include`|
+|**dateOfBirth**|String ISO Date|With parameter `include`|
+|**occupations**|[String]|With parameter `inlcude`|
+|**relatives**|[name: String, relationship: String]|With parameter `inlcude`|
+
 ##### Query Parameters
-|Parameter|Required|Type|Default|Valid values|
-|:--------|:-------|:---|:------|:-----------|
-|limit|No|Number|25|Number greater than 0|
-|orderBy|No|String|`-numberOfEpisodes`|`-numberOfEpisodes` `numberOfEpisodes`|
+
+|Parameter|Default|Valid values|
+|:--------|:------|:-----------|
+|limit|25|Number greater than 0|
+|orderBy|`-numberOfEpisodes`|`-numberOfEpisodes` `numberOfEpisodes`|
+|include|*See JSON Schema*|*See JSON Schema*|
