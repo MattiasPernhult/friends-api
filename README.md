@@ -10,7 +10,7 @@ REST API for fetching data about the tv show Friends
 ### GET /friends
 
 ##### Query Parameters
-|Parameter|Description|Required|Type|Default|Valid values|
-|:--------|:----------|:-------|:---|:------|:-----------|
-|limit|Limit the returned results|No|Number|25|Number greater than 0|
-|orderBy|Sort the result on number of episodes|No|String|"-numberOfEpisodes"|"-numberOfEpisodes" and "numberOfEpisodes"|
+|Parameter|Required|Type|Default|Valid values|
+|:--------|:-------|:---|:------|:-----------|
+|limit|No|Number|25|Number greater than 0|
+|orderBy|No|String|`-numberOfEpisodes`|`-numberOfEpisodes` `numberOfEpisodes`|
