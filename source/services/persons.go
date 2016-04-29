@@ -16,24 +16,28 @@ func getSession() (*mgo.Session, error) {
 }
 
 // GetPersons function
-func GetPersons(sort string, limit int) (*[]models.Persons, error) {
+func GetPersons(pq *models.PersonsQuery) (*[]models.Persons, error) {
 	session, err := getSession()
 	if err != nil {
+		// TODO: Add error and return it
 		log.Fatal(err)
 	}
 
 	var results []models.Persons
 
+	log.Println("Inne i service")
+
 	err = session.
 		DB("friends").
 		C("people").
 		Find(bson.M{}).
-		Select(bson.M{"firstAppearance": 1, "lastAppearance": 1, "numberOfEpisodes": 1, "name": 1}).
-		Sort(sort).
-		Limit(limit).
+		Select(pq.Include).
+		Sort(pq.OrderBy).
+		Limit(pq.Limit).
 		All(&results)
 
 	if err != nil {
+		// TODO: Add error and return it
 		log.Fatal(err)
 	}
 	return &results, err

@@ -18,14 +18,27 @@ func IsLimitParamValid(limitQuery string) (int, bool) {
 	return limit, true
 }
 
-// IsOrderByParamValid function
-func IsOrderByParamValid(orderByQuery string) (string, bool) {
-	orderBy := "-numberOfEpisodes"
-	if orderByQuery != "" {
-		if !(strings.Compare(orderByQuery, "-numberOfEpisodes") == 0 || strings.Compare(orderByQuery, "numberOfEpisodes") == 0) {
-			return "", false
+// IsIncludeParamValid function
+func IsIncludeParamValid(includeQueries []string, validIncludes []string, include map[string]interface{}) map[string]interface{} {
+	for _, validInclude := range validIncludes {
+		for _, includeQuery := range includeQueries {
+			if strings.Compare(validInclude, includeQuery) == 0 {
+				include[includeQuery] = 1
+			}
 		}
-		orderBy = orderByQuery
 	}
-	return orderBy, true
+	return include
+}
+
+// IsOrderByParamValid function
+func IsOrderByParamValid(orderByQuery string, validOrderBys []string) (string, bool) {
+	if orderByQuery != "" {
+		for _, validOrderBy := range validOrderBys {
+			if strings.Compare(orderByQuery, validOrderBy) == 0 {
+				return validOrderBy, true
+			}
+		}
+		return "", false
+	}
+	return validOrderBys[0], true
 }

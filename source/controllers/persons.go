@@ -3,8 +3,8 @@ package controllers
 import (
 	"net/http"
 	customErrors "sandbox/friends-api/source/errors"
+	"sandbox/friends-api/source/models"
 	"sandbox/friends-api/source/services"
-	"sandbox/friends-api/source/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -12,22 +12,25 @@ import (
 // PersonsController function
 func PersonsController(context *gin.Context) {
 
-	orderByQuery := context.Query("orderBy")
 	limitQuery := context.Query("limit")
+	orderByQuery := context.Query("orderBy")
+	includeQuery := context.Query("include")
 
-	limit, limitOK := utils.IsLimitParamValid(limitQuery)
-	if !limitOK {
+	pq := new(models.PersonsQuery)
+
+	if !pq.AddLimit(limitQuery) {
 		context.JSON(customErrors.ErrorMessage(customErrors.ErrLimitParam))
 		return
 	}
 
-	orderBy, orderByOK := utils.IsOrderByParamValid(orderByQuery)
-	if !orderByOK {
+	if !pq.AddOrderBy(orderByQuery) {
 		context.JSON(customErrors.ErrorMessage(customErrors.ErrPersonsOrderByParam))
 		return
 	}
 
-	people, err := services.GetPersons(orderBy, limit)
+	pq.AddInclude(includeQuery)
+
+	people, err := services.GetPersons(pq)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{
 			"error": err,
