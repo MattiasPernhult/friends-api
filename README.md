@@ -8,3 +8,5 @@ REST API for fetching data about the tv show Friends
 |GET          |/persons         |Returns persons from Friends, both regulars and recurring characters          |
 
 #### GET /friends
+
+[I'm an inline-style link >](https://www.google.com)
