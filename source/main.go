@@ -13,7 +13,6 @@ func main() {
 }
 
 func setUpRoutes(router *gin.Engine) {
-	router.StaticFile("/", "public/index.html")
-	router.StaticFile("README.md", "README.md")
+	router.GET("/", controllers.IndexController)
 	router.GET("/persons", controllers.PersonsController)
 }
