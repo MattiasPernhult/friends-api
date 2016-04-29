@@ -32,11 +32,11 @@ REST API for fetching data about the tv show Friends
 |orderBy|`-numberOfEpisodes`|`-numberOfEpisodes` `numberOfEpisodes`|
 |include|*See JSON Schema*|*See JSON Schema*|
 
-Parameter `orderBy` will default to -numberOfEpisodes, the dash means it will sort by descending and without the dash it will sort by ascending.
+Parameter `orderBy` will default to **-numberOfEpisodes**, the dash means it will sort by descending and without the dash it will sort by ascending.
 
 Parameter `include` will include more information in the response. To include several use comma between each include:
 
-```
+``` bash
 /persons?include=nicknames,occupations
 ```
 
@@ -64,3 +64,4 @@ When doing a GET Request to the endpoint and adding query parameter limit to 2, 
 }
 ```
 
+Hello
