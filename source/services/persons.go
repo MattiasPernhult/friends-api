@@ -1,8 +1,8 @@
 package services
 
 import (
-	"log"
 	"sandbox/friends-api/source/credentials"
+	"sandbox/friends-api/source/errors"
 	"sandbox/friends-api/source/models"
 
 	"gopkg.in/mgo.v2"
@@ -16,16 +16,12 @@ func getSession() (*mgo.Session, error) {
 }
 
 // GetPersons function
-func GetPersons(pq *models.PersonsQuery) (*[]models.Persons, error) {
+func GetPersons(pq *models.PersonsQuery) (*[]models.Persons, *errors.RequestError) {
+	var results []models.Persons
 	session, err := getSession()
 	if err != nil {
-		// TODO: Add error and return it
-		log.Fatal(err)
+		return &results, errors.ErrDatabaseConnection
 	}
-
-	var results []models.Persons
-
-	log.Println("Inne i service")
 
 	err = session.
 		DB("friends").
@@ -37,8 +33,7 @@ func GetPersons(pq *models.PersonsQuery) (*[]models.Persons, error) {
 		All(&results)
 
 	if err != nil {
-		// TODO: Add error and return it
-		log.Fatal(err)
+		return &results, errors.ErrDatabaseQuery
 	}
-	return &results, err
+	return &results, nil
 }

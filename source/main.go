@@ -13,5 +13,6 @@ func main() {
 }
 
 func setUpRoutes(router *gin.Engine) {
-	router.GET("persons", controllers.PersonsController)
+	router.StaticFile("/", "public/index.html")
+	router.GET("/persons", controllers.PersonsController)
 }

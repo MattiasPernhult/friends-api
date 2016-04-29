@@ -17,6 +17,7 @@ var (
 	ErrNotFound = &RequestError{
 		ErrorString: "Request Not Found",
 		ErrorCode:   http.StatusNotFound,
+		ErrorDetail: "The requested endpoint doesn't exists",
 	}
 
 	// ErrLimitParam handle errors when limit parameter is wrong
@@ -31,6 +32,20 @@ var (
 		ErrorString: "Bad Request",
 		ErrorCode:   http.StatusBadRequest,
 		ErrorDetail: "Parameter 'orderBy' must be either '-numberOfEpisodes' or 'numberOfEpisodes'",
+	}
+
+	// ErrDatabaseConnection error
+	ErrDatabaseConnection = &RequestError{
+		ErrorString: "Internal Server Error",
+		ErrorCode:   http.StatusInternalServerError,
+		ErrorDetail: "Problem connecting to database.. Try again later",
+	}
+
+	// ErrDatabaseQuery error
+	ErrDatabaseQuery = &RequestError{
+		ErrorString: "Internal Server Error",
+		ErrorCode:   http.StatusInternalServerError,
+		ErrorDetail: "Problem when performing database query",
 	}
 )
 
