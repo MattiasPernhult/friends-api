@@ -15,4 +15,5 @@ func main() {
 func setUpRoutes(router *gin.Engine) {
 	router.GET("/", controllers.IndexController)
 	router.GET("/persons", controllers.PersonsController)
+	router.GET("/persons/:name", controllers.PersonController)
 }

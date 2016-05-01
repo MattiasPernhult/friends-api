@@ -30,13 +30,14 @@ func PersonsController(context *gin.Context) {
 
 	pq.AddInclude(includeQuery)
 
-	people, err := services.GetPersons(pq)
+	persons, err := services.GetPersons(pq)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{
 			"error": err,
 		})
+	} else {
+		context.JSON(http.StatusOK, gin.H{
+			"persons": persons,
+		})
 	}
-	context.JSON(http.StatusOK, gin.H{
-		"people": people,
-	})
 }
