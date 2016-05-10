@@ -31,14 +31,17 @@ func IsIncludeParamValid(includeQueries []string, validIncludes []string, includ
 }
 
 // IsOrderByParamValid function
-func IsOrderByParamValid(orderByQuery string, validOrderBys []string) (string, bool) {
-	if orderByQuery != "" {
-		for _, validOrderBy := range validOrderBys {
-			if strings.Compare(orderByQuery, validOrderBy) == 0 {
-				return validOrderBy, true
+func IsOrderByParamValid(orderByQueries []string, validOrderBys []string) []string {
+	var orderBy []string
+	for _, validOrderBy := range validOrderBys {
+		for _, orderByQuery := range orderByQueries {
+			if strings.Compare(validOrderBy, orderByQuery) == 0 {
+				orderBy = append(orderBy, orderByQuery)
 			}
 		}
-		return "", false
 	}
-	return validOrderBys[0], true
+	if len(orderBy) == 0 {
+		orderBy = validOrderBys[0:1]
+	}
+	return orderBy
 }

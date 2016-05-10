@@ -28,30 +28,31 @@ type Relative struct {
 
 // CharacterLine struct
 type CharacterLine struct {
-	Person string `json:"name,omitempty" bson:"name"`
-	Said   string `json:"said,omitempty" bson:"said"`
+	Said          string `json:"said,omitempty" bson:"said"`
+	SeasonNumber  int    `json:"seasonNumber,omitempty" bson:"seasonNumber"`
+	EpisodeNumber int    `json:"episodeNumber,omitempty" bson:"episodeNumber"`
 }
 
 // Persons struct
 type Persons struct {
-	FirstAppearance  string     `json:"firstAppearance,omitempty" bson:"firstAppearance"`
-	LastAppearance   string     `json:"lastAppearance,omitempty" bson:"lastAppearance"`
-	NumberOfEpisodes int32      `json:"numberOfEpisodes,omitempty" bson:"numberOfEpisodes"`
-	PotrayedBy       []string   `json:"portrayedBy,omitempty" bson:"portrayedBy"`
-	Name             string     `json:"name,omitempty" bson:"name"`
-	Nicknames        []string   `json:"nicknames,omitempty" bson:"nicknames"`
-	Gender           string     `json:"gender,omitempty" bson:"gender"`
-	DateOfBirth      string     `json:"dateOfBirth,omitempty" bson:"dateOfBirth"`
-	Occupations      []string   `json:"occupations,omitempty" bson:"occupations"`
-	Relatives        []Relative `json:"relatives,omitempty" bson:"relatives"`
-	Lines            []string   `json:"lines,omitempty" bson:"lines"`
+	FirstAppearance  string          `json:"firstAppearance,omitempty" bson:"firstAppearance"`
+	LastAppearance   string          `json:"lastAppearance,omitempty" bson:"lastAppearance"`
+	NumberOfEpisodes int32           `json:"numberOfEpisodes,omitempty" bson:"numberOfEpisodes"`
+	PotrayedBy       []string        `json:"portrayedBy,omitempty" bson:"portrayedBy"`
+	Name             string          `json:"name,omitempty" bson:"name"`
+	Nicknames        []string        `json:"nicknames,omitempty" bson:"nicknames"`
+	Gender           string          `json:"gender,omitempty" bson:"gender"`
+	DateOfBirth      string          `json:"dateOfBirth,omitempty" bson:"dateOfBirth"`
+	Occupations      []string        `json:"occupations,omitempty" bson:"occupations"`
+	Relatives        []Relative      `json:"relatives,omitempty" bson:"relatives"`
+	Lines            []CharacterLine `json:"lines,omitempty" bson:"lines"`
 }
 
 // PersonsQuery struct
 type PersonsQuery struct {
 	Find    map[string]interface{}
 	Limit   int
-	OrderBy string
+	OrderBy []string
 	Include map[string]interface{}
 }
 
@@ -63,10 +64,10 @@ func (pq *PersonsQuery) AddLimit(limitQuery string) bool {
 }
 
 // AddOrderBy function
-func (pq *PersonsQuery) AddOrderBy(orderByQuery string) bool {
-	orderBy, ok := utils.IsOrderByParamValid(orderByQuery, []string{"-numberOfEpisodes", "numberOfEpisodes"})
+func (pq *PersonsQuery) AddOrderBy(orderByQuery string) {
+	orderBy := utils.IsOrderByParamValid(strings.Split(orderByQuery, ","),
+		[]string{"-numberOfEpisodes", "numberOfEpisodes"})
 	pq.OrderBy = orderBy
-	return ok
 }
 
 // AddFind function

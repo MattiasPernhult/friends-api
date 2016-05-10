@@ -2,18 +2,9 @@ package services
 
 import (
 	"log"
-	"sandbox/friends-api/source/credentials"
 	"sandbox/friends-api/source/errors"
 	"sandbox/friends-api/source/models"
-
-	"gopkg.in/mgo.v2"
 )
-
-func getSession() (*mgo.Session, error) {
-	mongoURI := credentials.GetCredential("mongoUri")
-	session, err := mgo.Dial(mongoURI)
-	return session, err
-}
 
 // GetPerson function
 func GetPerson(pq *models.PersonsQuery) (*models.Persons, *errors.RequestError) {
@@ -53,7 +44,7 @@ func GetPersons(pq *models.PersonsQuery) (*[]models.Persons, *errors.RequestErro
 		C("people").
 		Find(pq.Find).
 		Select(pq.Include).
-		Sort(pq.OrderBy).
+		Sort(pq.OrderBy...).
 		Limit(pq.Limit).
 		All(&results)
 
