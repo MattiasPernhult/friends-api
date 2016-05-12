@@ -1,7 +1,7 @@
 package services
 
 import (
-	"sandbox/friends-api/source/credentials"
+	"friends-api/source/credentials"
 
 	"gopkg.in/mgo.v2"
 )

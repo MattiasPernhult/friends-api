@@ -1,7 +1,7 @@
 package main
 
 import (
-	"sandbox/friends-api/source/controllers"
+	"friends-api/source/controllers"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,7 +9,7 @@ import (
 func main() {
 	router := gin.Default()
 	setUpRoutes(router)
-	router.Run("localhost:8080")
+	router.Run(":8080")
 }
 
 func setUpRoutes(router *gin.Engine) {

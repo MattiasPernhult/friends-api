@@ -1,7 +1,7 @@
 package models
 
 import (
-	"sandbox/friends-api/source/utils"
+	"friends-api/source/utils"
 
 	"strings"
 )

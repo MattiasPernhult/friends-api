@@ -1,9 +1,9 @@
 package controllers
 
 import (
+	"friends-api/source/models"
+	"friends-api/source/services"
 	"net/http"
-	"sandbox/friends-api/source/models"
-	"sandbox/friends-api/source/services"
 	"strings"
 
 	"github.com/gin-gonic/gin"

@@ -1,9 +1,9 @@
 package services
 
 import (
+	"friends-api/source/errors"
+	"friends-api/source/models"
 	"log"
-	"sandbox/friends-api/source/errors"
-	"sandbox/friends-api/source/models"
 )
 
 // GetPerson function
