@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "XxSDNaJf0LpjvMapDmmhNIlf+MQ=",
+			"path": "github.com/gin-gonic/gin",
+			"revision": "5caaac4c5c712a9e7a7de29e6c24ef46c753017f",
+			"revisionTime": "2016-04-14T23:39:28Z"
+		}
+	],
+	"rootPath": "friends-api"
+}
