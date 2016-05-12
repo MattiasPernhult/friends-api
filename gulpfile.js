@@ -13,7 +13,7 @@ gulp.task('compilepkg', function() {
         stripPath: function(filePath) {
           var subPath = filePath.substring(process.cwd().length);
           var pkg = subPath.substring(1, subPath.lastIndexOf(path.sep));
-          return 'sandbox/friends-api/' + pkg;
+          return 'friends-api/' + pkg;
         }
       }
     }));
