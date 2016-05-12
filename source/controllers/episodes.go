@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// EpisodesController function
 func EpisodesController(context *gin.Context) {
 	limitQuery := context.Query("limit")
 	orderByQuery := context.Query("orderBy")

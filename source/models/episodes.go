@@ -32,6 +32,14 @@ type EpisodesQuery struct {
 	Include map[string]interface{}
 }
 
+// AddFind function
+func (eq *EpisodesQuery) AddFind(key string, value interface{}) {
+	if eq.Find == nil {
+		eq.Find = map[string]interface{}{}
+	}
+	eq.Find[key] = value
+}
+
 // AddLimit function
 func (eq *EpisodesQuery) AddLimit(limitQuery string) bool {
 	limit, ok := utils.IsLimitParamValid(limitQuery)
