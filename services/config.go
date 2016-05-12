@@ -1,7 +1,7 @@
 package services
 
 import (
-	"friends-api/source/credentials"
+	"friends-api/credentials"
 
 	"gopkg.in/mgo.v2"
 )

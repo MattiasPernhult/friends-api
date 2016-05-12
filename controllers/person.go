@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"friends-api/source/models"
-	"friends-api/source/services"
+	"friends-api/models"
+	"friends-api/services"
 	"net/http"
 	"strings"
 

@@ -1,8 +1,8 @@
 package services
 
 import (
-	"friends-api/source/errors"
-	"friends-api/source/models"
+	"friends-api/errors"
+	"friends-api/models"
 	"log"
 )
 

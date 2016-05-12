@@ -1,7 +1,7 @@
 package models
 
 import (
-	"friends-api/source/utils"
+	"friends-api/utils"
 	"strings"
 )
 

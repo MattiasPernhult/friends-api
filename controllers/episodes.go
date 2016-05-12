@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	customErrors "friends-api/source/errors"
-	"friends-api/source/models"
-	"friends-api/source/services"
+	customErrors "friends-api/errors"
+	"friends-api/models"
+	"friends-api/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

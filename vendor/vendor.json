@@ -7,6 +7,12 @@
 			"path": "github.com/gin-gonic/gin",
 			"revision": "5caaac4c5c712a9e7a7de29e6c24ef46c753017f",
 			"revisionTime": "2016-04-14T23:39:28Z"
+		},
+		{
+			"checksumSHA1": "KaJRC3H4gf9aNsQ66KJ7Tycb+94=",
+			"path": "gopkg.in/mgo.v2",
+			"revision": "4d04138ffef2791c479c0c8bbffc30b34081b8d9",
+			"revisionTime": "2015-10-26T16:34:53Z"
 		}
 	],
 	"rootPath": "friends-api"

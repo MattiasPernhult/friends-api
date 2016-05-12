@@ -1,1 +1,1 @@
-web: friends-api/source
+web: friends-api
