@@ -1,7 +1,7 @@
 package main
 
 import (
-	"friends-api/source/controllers"
+	"friends-api/controllers"
 
 	"github.com/gin-gonic/gin"
 )
