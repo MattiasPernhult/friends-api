@@ -9,7 +9,7 @@ import (
 func main() {
 	router := gin.Default()
 	setUpRoutes(router)
-	router.Run(":8080")
+	router.Run("localhost:8080")
 }
 
 func setUpRoutes(router *gin.Engine) {
@@ -17,4 +17,5 @@ func setUpRoutes(router *gin.Engine) {
 	router.GET("/persons", controllers.PersonsController)
 	router.GET("/persons/:name", controllers.PersonController)
 	router.GET("/episodes", controllers.EpisodesController)
+	router.GET("/overview", controllers.OverviewController)
 }
