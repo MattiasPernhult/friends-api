@@ -16,7 +16,7 @@ func PersonsController(context *gin.Context) {
 	orderByQuery := context.Query("orderBy")
 	includeQuery := context.Query("include")
 
-	pq := new(models.PersonsQuery)
+	pq := new(models.PersonQuery)
 
 	if !pq.AddLimit(limitQuery) {
 		context.JSON(customErrors.ErrorMessage(customErrors.ErrLimitParam))

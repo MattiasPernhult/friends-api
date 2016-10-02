@@ -7,8 +7,8 @@ import (
 )
 
 // GetEpisodes func
-func GetEpisodes(eq *models.EpisodesQuery) (*[]models.Episodes, *errors.RequestError) {
-	var results []models.Episodes
+func GetEpisodes(eq *models.EpisodeQuery) (*[]models.Episode, *errors.RequestError) {
+	var results []models.Episode
 
 	session, err := getSession()
 	if err != nil {

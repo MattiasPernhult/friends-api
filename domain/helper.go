@@ -1,4 +1,4 @@
-package utils
+package domain
 
 import (
 	"strconv"
@@ -6,8 +6,8 @@ import (
 )
 
 // IsLimitParamValid function
-func IsLimitParamValid(limitQuery string) (int, bool) {
-	limit := 25
+func isLimitParamValid(limitQuery string) (int, bool) {
+	limit := 20
 	var convertErr error
 	if limitQuery != "" {
 		limit, convertErr = strconv.Atoi(limitQuery)
@@ -19,7 +19,7 @@ func IsLimitParamValid(limitQuery string) (int, bool) {
 }
 
 // IsIncludeParamValid function
-func IsIncludeParamValid(includeQueries []string, validIncludes []string, include map[string]interface{}) map[string]interface{} {
+func isIncludeParamValid(includeQueries []string, validIncludes []string, include map[string]interface{}) map[string]interface{} {
 	for _, validInclude := range validIncludes {
 		for _, includeQuery := range includeQueries {
 			if strings.Compare(validInclude, includeQuery) == 0 {
@@ -31,7 +31,7 @@ func IsIncludeParamValid(includeQueries []string, validIncludes []string, includ
 }
 
 // IsOrderByParamValid function
-func IsOrderByParamValid(orderByQueries []string, validOrderBys []string) []string {
+func isOrderByParamValid(orderByQueries []string, validOrderBys []string) []string {
 	var orderBy []string
 	for _, validOrderBy := range validOrderBys {
 		for _, orderByQuery := range orderByQueries {

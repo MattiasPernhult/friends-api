@@ -1,13 +1,9 @@
-package models
+package domain
 
-import (
-	"friends-api/utils"
+import "strings"
 
-	"strings"
-)
-
-// Episodes struct
-type Episodes struct {
+// Episode struct
+type Episode struct {
 	Season        string                `json:"season" bson:"season"`
 	Episode       string                `json:"episode" bson:"episode"`
 	SeasonNumber  int                   `json:"seasonNumber" bson:"seasonNumber"`
@@ -24,8 +20,8 @@ type EpisodeConversation struct {
 	Person string `json:"person" bson:"person"`
 }
 
-// EpisodesQuery struct
-type EpisodesQuery struct {
+// EpisodeQuery struct
+type EpisodeQuery struct {
 	Limit   int
 	OrderBy []string
 	Find    map[string]interface{}
@@ -33,7 +29,7 @@ type EpisodesQuery struct {
 }
 
 // AddFind function
-func (eq *EpisodesQuery) AddFind(key string, value interface{}) {
+func (eq *EpisodeQuery) AddFind(key string, value interface{}) {
 	if eq.Find == nil {
 		eq.Find = map[string]interface{}{}
 	}
@@ -41,15 +37,15 @@ func (eq *EpisodesQuery) AddFind(key string, value interface{}) {
 }
 
 // AddLimit function
-func (eq *EpisodesQuery) AddLimit(limitQuery string) bool {
-	limit, ok := utils.IsLimitParamValid(limitQuery)
+func (eq *EpisodeQuery) AddLimit(limitQuery string) bool {
+	limit, ok := isLimitParamValid(limitQuery)
 	eq.Limit = limit
 	return ok
 }
 
 // AddOrderBy function
-func (eq *EpisodesQuery) AddOrderBy(orderByQuery string) {
-	orderBy := utils.IsOrderByParamValid(strings.Split(orderByQuery, ","),
+func (eq *EpisodeQuery) AddOrderBy(orderByQuery string) {
+	orderBy := isOrderByParamValid(strings.Split(orderByQuery, ","),
 		[]string{"seasonNumber", "-seasonNumber", "episodeNumber", "-episodeNumber"})
 	eq.OrderBy = orderBy
 }

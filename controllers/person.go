@@ -14,7 +14,7 @@ func PersonController(context *gin.Context) {
 	nameParam := context.Param("name")
 	name := strings.ToLower(nameParam)
 
-	pq := new(models.PersonsQuery)
+	pq := new(models.PersonQuery)
 	pq.AddFind("accessName", name)
 
 	persons, err := services.GetPerson(pq)

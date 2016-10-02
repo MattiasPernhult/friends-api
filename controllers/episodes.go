@@ -14,7 +14,7 @@ func EpisodesController(context *gin.Context) {
 	limitQuery := context.Query("limit")
 	orderByQuery := context.Query("orderBy")
 
-	eq := new(models.EpisodesQuery)
+	eq := new(models.EpisodeQuery)
 
 	if !eq.AddLimit(limitQuery) {
 		context.JSON(customErrors.ErrorMessage(customErrors.ErrLimitParam))

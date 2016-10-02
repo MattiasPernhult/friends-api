@@ -1,4 +1,4 @@
-package models
+package domain
 
 // CreatedBy struct
 type CreatedBy struct {

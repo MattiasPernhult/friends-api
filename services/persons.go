@@ -7,8 +7,8 @@ import (
 )
 
 // GetPerson function
-func GetPerson(pq *models.PersonsQuery) (*models.Persons, *errors.RequestError) {
-	var result models.Persons
+func GetPerson(pq *models.PersonQuery) (*models.Person, *errors.RequestError) {
+	var result models.Person
 	session, err := getSession()
 	if err != nil {
 		log.Printf("ERROR: %v\n", err)
@@ -31,8 +31,8 @@ func GetPerson(pq *models.PersonsQuery) (*models.Persons, *errors.RequestError) 
 }
 
 // GetPersons function
-func GetPersons(pq *models.PersonsQuery) (*[]models.Persons, *errors.RequestError) {
-	var results []models.Persons
+func GetPersons(pq *models.PersonQuery) (*[]models.Person, *errors.RequestError) {
+	var results []models.Person
 	session, err := getSession()
 	if err != nil {
 		log.Printf("ERROR: %v\n", err)
