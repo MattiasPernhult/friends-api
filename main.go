@@ -1,6 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+)
 
 // CORSMiddleware function
 func CORSMiddleware() gin.HandlerFunc {
@@ -16,6 +20,7 @@ func CORSMiddleware() gin.HandlerFunc {
 		}
 		c.Next()
 	}
+	fmt.Println("hello world")
 }
 
 func main() {
