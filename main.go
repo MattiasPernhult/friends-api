@@ -21,6 +21,8 @@ func CORSMiddleware() gin.HandlerFunc {
 		c.Next()
 	}
 	fmt.Println("hello world")
+	fmt.Println("hello world 2")
+	fmt.Println("hello world 3")
 }
 
 func main() {
